@@ -66,7 +66,7 @@ public class ExternalFrameHandler {
                             chunks[cidx].vec().isUUID()) {
                         // handle strings
                         ab.putStr(getStringFromChunk(chunks, cidx, rowIdx));
-                    } else if (chunks[cidx].vec().isNumeric()) {
+                    } else if (chunks[cidx].vec().isNumeric() || chunks[cidx].vec().isTime()) { // isNumeric excludes categorial and time
                         // handle numbers
                         if (chunks[cidx].vec().isInt()) {
                             ab.put8(chunks[cidx].at8(rowIdx));
